@@ -3,7 +3,7 @@ import './Loader.css'
 
 const Loader = () => {
   return (
-    <div className='bg-[#212121] min-h-screen flex justify-center items-center'>
+   <div className="loader">
       <span className="loader"></span>
     </div>
   )
