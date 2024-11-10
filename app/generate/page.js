@@ -2,7 +2,7 @@
 import Loader from '@/components/Loader';
 import React, { useState } from 'react'
 
-const GenerateJoke = () => {
+export default function GenerateJoke() {
 
     // const [type, setType] = useState('Programming');
 
@@ -21,7 +21,7 @@ const GenerateJoke = () => {
         };
 
 
-         fetch(`https://api.chucknorris.io/jokes/random?category=${type}`, requestOptions)
+         fetch(`https://api.chucknorris.io/jokes/random?category=${type}`, requestOptions, { next: { revalidate: 3600 } })
             .then((response) => response.json())
             .then((result) => setJoke(result.value))
             .catch((error) => console.error(error));
@@ -53,4 +53,4 @@ const GenerateJoke = () => {
     )
 }
 
-export default GenerateJoke
+export const dynamic = 'force-dynamic'
